@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="comfrey671&#39;s Blog">
 <meta property="og:description" content="IOC容器准备例子 导入依赖 12345&lt;dependency&gt;  &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;  &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;  &lt;version&gt;4.3.11.RELEASE&lt;&#x2F;version&gt;&lt;&#x2F;depen">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://comfrey671.github.io/.io//ioc_1.png">
-<meta property="og:image" content="https://comfrey671.github.io/.io//ioc_2.png">
+<meta property="og:image" content="https://comfrey671.github.io/2022/07/09/IOC/ioc_1.png">
+<meta property="og:image" content="https://comfrey671.github.io/2022/07/09/IOC/ioc_2.png">
 <meta property="article:published_time" content="2022-07-09T06:27:13.000Z">
-<meta property="article:modified_time" content="2022-07-09T06:32:31.071Z">
+<meta property="article:modified_time" content="2022-07-09T06:38:18.946Z">
 <meta property="article:author" content="comfrey">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://comfrey671.github.io/.io//ioc_1.png">
+<meta name="twitter:image" content="https://comfrey671.github.io/2022/07/09/IOC/ioc_1.png">
   
   
   
@@ -291,8 +291,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><span class="hljs-comment">// 用我们的配置文件来启动一个 ApplicationContext</span><br>		<span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <br>			<span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;classpath:application.xml&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;context 启动成功&quot;</span>);<br><span class="hljs-comment">// 从 context 中取出我们的 Bean，而不是用 new MessageServiceImpl() 这种方式</span><br>		<span class="hljs-type">MessageService</span> <span class="hljs-variable">messageService</span> <span class="hljs-operator">=</span> context.getBean(MessageService.class);<br><span class="hljs-comment">// 这句将输出: hello world</span><br>		System.out.println(messageService.getMessage());<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
-<h3 id="主要类继承结构"><a href="#主要类继承结构" class="headerlink" title="主要类继承结构"></a>主要类继承结构</h3><p><img src="/.io//ioc_1.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/.io//ioc_2.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="主要类继承结构"><a href="#主要类继承结构" class="headerlink" title="主要类继承结构"></a>主要类继承结构</h3><p><img src="./ioc_1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="./ioc_2.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>ApplicationContext继承了ListableBeanFactory，这个接口代表我们可以通过它获取多个Bean，而最顶层的其他BeanFactory接口的方法都是获取单个Bean的。</li>
 <li>ApplicationContext继承了HierarchicalBeanFactory，也就是说我们可以在应用中起多个BeanFactory，并为其设置父子关系。</li>
