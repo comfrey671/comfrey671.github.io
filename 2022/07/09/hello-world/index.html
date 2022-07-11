@@ -360,7 +360,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/09/IOC/" title="IOC">
+                      <a href="/2022/07/11/IOC/" title="IOC">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">IOC</span>
                         <span class="visible-mobile">上一篇</span>
@@ -378,19 +378,23 @@
             
   <article id="comments" lazyload>
     
-  <div id="gitalk-container"></div>
+  <div id="valine"></div>
   <script type="text/javascript">
-    Fluid.utils.loadComments('#gitalk-container', function() {
-      Fluid.utils.createCssLink('/css/gitalk.css')
-      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
         var options = Object.assign(
-          {"clientID":"a181b06c441caf73b1f4","clientSecret":"041a8db0a4aecb344cf9a7e5d1fb76a8857d3938","repo":"comfrey671.github.io","owner":"comfrey671","admin":"comfrey671","language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://noisy-leaf-69a6.comfrey.workers.dev/https://github.com/login/oauth/access_token"},
+          {"appId":"n1a34gLp7cRpsPzOmCSx7plW-MdYXbMMI","appKey":"M1NOoI6U2nr3S1A6uweDlunW","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
           {
-            id: '3a3f9111935187947118ebb361d890d2'
+            el: "#valine",
+            path: window.location.pathname
           }
         )
-        var gitalk = new Gitalk(options);
-        gitalk.render('gitalk-container');
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
       });
     });
   </script>

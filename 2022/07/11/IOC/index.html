@@ -19,19 +19,19 @@
     <meta name="description" content="IOC容器准备例子 导入依赖 12345&lt;dependency&gt;  &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;  &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;  &lt;version&gt;4.3.11.RELEASE&lt;&#x2F;version&gt;&lt;&#x2F;depen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IOC">
-<meta property="og:url" content="https://comfrey671.github.io/2022/07/09/IOC/index.html">
+<meta property="og:url" content="https://comfrey671.github.io/2022/07/11/IOC/index.html">
 <meta property="og:site_name" content="comfrey671&#39;s Blog">
 <meta property="og:description" content="IOC容器准备例子 导入依赖 12345&lt;dependency&gt;  &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;  &lt;artifactId&gt;spring-context&lt;&#x2F;artifactId&gt;  &lt;version&gt;4.3.11.RELEASE&lt;&#x2F;version&gt;&lt;&#x2F;depen">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://comfrey671.github.io/2022/07/09/IOC/ioc_1.png">
-<meta property="og:image" content="https://comfrey671.github.io/2022/07/09/IOC/ioc_2.png">
-<meta property="article:published_time" content="2022-07-09T06:27:13.000Z">
-<meta property="article:modified_time" content="2022-07-09T06:57:19.665Z">
+<meta property="og:image" content="https://comfrey671.github.io/2022/07/11/IOC/ioc_1.png">
+<meta property="og:image" content="https://comfrey671.github.io/2022/07/11/IOC/ioc_2.png">
+<meta property="article:published_time" content="2022-07-11T06:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-11T06:06:50.297Z">
 <meta property="article:author" content="comfrey">
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://comfrey671.github.io/2022/07/09/IOC/ioc_1.png">
+<meta name="twitter:image" content="https://comfrey671.github.io/2022/07/11/IOC/ioc_1.png">
   
   
   
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-09 14:27" pubdate>
-          2022年7月9日 下午
+        <time datetime="2022-07-11 14:00" pubdate>
+          2022年7月11日 下午
         </time>
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          588 分钟
+          589 分钟
         
       </span>
     
@@ -632,6 +632,13 @@
 <p>最后，我们说说如果我们自己定义一个 bean 实现 BeanPostProcessor 的话，它的执行时机是什么时候？</p>
 <p>如果仔细看了代码分析的话，其实很容易知道了，在 bean 实例化完成、属性注入完成之后，会执行回调方法，具体请参见类 AbstractAutowireCapableBeanFactory#initBean 方法。</p>
 <p>首先会回调几个实现了 Aware 接口的 bean，然后就开始回调 BeanPostProcessor 的 postProcessBeforeInitialization 方法，之后是回调 init-method，然后再回调 BeanPostProcessor 的 postProcessAfterInitialization 方法。</p>
+<hr>
+<p><em><strong>参考：</strong></em></p>
+<blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.javadoop.com/post/spring-ioc">Spring IOC 容器源码分析</a></li>
+</ol>
+</blockquote>
 
                 
               </div>
@@ -687,7 +694,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>IOC</div>
-      <div>https://comfrey671.github.io/2022/07/09/IOC/</div>
+      <div>https://comfrey671.github.io/2022/07/11/IOC/</div>
     </div>
     <div class="license-meta">
       
@@ -699,7 +706,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月9日</div>
+          <div>2022年7月11日</div>
         </div>
       
       
@@ -747,19 +754,23 @@
             
   <article id="comments" lazyload>
     
-  <div id="gitalk-container"></div>
+  <div id="valine"></div>
   <script type="text/javascript">
-    Fluid.utils.loadComments('#gitalk-container', function() {
-      Fluid.utils.createCssLink('/css/gitalk.css')
-      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
         var options = Object.assign(
-          {"clientID":"a181b06c441caf73b1f4","clientSecret":"041a8db0a4aecb344cf9a7e5d1fb76a8857d3938","repo":"comfrey671.github.io","owner":"comfrey671","admin":"comfrey671","language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://noisy-leaf-69a6.comfrey.workers.dev/https://github.com/login/oauth/access_token"},
+          {"appId":"n1a34gLp7cRpsPzOmCSx7plW-MdYXbMMI","appKey":"M1NOoI6U2nr3S1A6uweDlunW","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
           {
-            id: 'deed2dfe866aa87e831645bfdf15be64'
+            el: "#valine",
+            path: window.location.pathname
           }
         )
-        var gitalk = new Gitalk(options);
-        gitalk.render('gitalk-container');
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
       });
     });
   </script>
