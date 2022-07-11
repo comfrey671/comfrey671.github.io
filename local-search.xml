@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>类加载机制</title>
+    <link href="/2022/07/11/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
+    <url>/2022/07/11/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、类的加载"><a href="#1、类的加载" class="headerlink" title="1、类的加载"></a>1、类的加载</h2><p>当启动一个Java程序后，JVM会首先加载带有 <em><strong>main</strong></em> 方法的主类，并以此为 <em>入口</em> 开始执行。</p><p>然后再main方法中遇到一个新的类，由于内存中没有该类的信息，因此JVM会通过 <em><strong>类加载器</strong></em> 从对应 *.class文件中加载该类到内存中来使用。</p><h2 id="2、加载过程"><a href="#2、加载过程" class="headerlink" title="2、加载过程"></a>2、加载过程</h2><p>一个类从加载到使用一般会经历一下过程：加载、验证、准备、解析、初始化、使用、卸载。</p><p>前面已经说了加载，下面剩下的几个过程：</p><h4 id="验证："><a href="#验证：" class="headerlink" title="验证："></a>验证：</h4><p>这一步会遵从虚拟机规范，来验证加载进来的内容，避免“.class”文件被人修改过。</p><h4 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h4><p>在这个阶段就是给对应的类分配内存空间，以及给该类的 <em><strong>类变量</strong></em> 分配空间和给定一个初始化的值，例如：0；</p><h4 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h4><p>&#x2F;&#x2F;todo</p><h4 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h4><p>这个阶段会对类进行初始化，对类变量进行真正的初始化工作(准备阶段仅仅只是赋初值而已)，以及执行 <strong><em>静态代码</em>块</strong> 等。</p><p>&#x3D;&#x3D;类的初始化规则：1、new 类的实例时，会加载并初始化对应的类；2、初始化类的父类还没有加载和初始化，必须先对父类进行加载和初始化；3、包含main方法的主类，必须立马初始化；&#x3D;&#x3D;</p><h4 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h4><p>&#x2F;&#x2F;todo</p><h4 id="卸载："><a href="#卸载：" class="headerlink" title="卸载："></a>卸载：</h4><p>&#x2F;&#x2F;todo</p><h2 id="3、加载器和机制"><a href="#3、加载器和机制" class="headerlink" title="3、加载器和机制"></a>3、加载器和机制</h2><h4 id="加载器："><a href="#加载器：" class="headerlink" title="加载器："></a>加载器：</h4><ol><li><p><strong>启动类加载器-Bootstrap ClassLoader</strong> </p><p>主要负责加载Java的核心类库，JVM启动后会依赖启动类加载器去加载Java安装路径下lib目录中的类。</p></li><li><p><strong>扩展类加载器-Extension ClassLoader</strong></p><p>负责加载Java安装路径下lib&#x2F;ext目录中的类。</p></li><li><p><strong>应用程序类加载器-Application ClassLoader</strong></p><p>负责加载环境变量ClassPath所指定路径中的类，即可以理解为加载我们写的那些代码。</p></li><li><p><strong>自定义加载器</strong></p><p>可以根据不同需求自定义实现加载器，如：为了防止别人反编译，我们可以对类进行加密，然后通过自定义的加载器来加载被加密的类。</p></li></ol><h4 id="双亲委派机制："><a href="#双亲委派机制：" class="headerlink" title="双亲委派机制："></a>双亲委派机制：</h4><p><img src="./%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%B1%82%E7%BA%A7.png" alt="类加载器_层级结构.png"></p><p>假设我们的 <em><strong>应用程序类加载器</strong></em> 需要加载一个类，它会首先交给它的父类 <em><strong>扩展类加载器</strong></em> 来进行加载，<em><strong>扩展类加载器</strong></em> 又会继续交给它的父类 <em><strong>启动类加载器</strong></em> ,当父类加载器找不到类，无法加载时才会返回到子类加载器进行加载。</p><hr><p><em><strong>参考：</strong></em></p><blockquote><ol><li>《从0开始带你成为JVM实战高手》</li></ol></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+      <category>JVM</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JVM</tag>
+      
+      <tag>Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>IOC</title>
     <link href="/2022/07/11/IOC/"/>
     <url>/2022/07/11/IOC/</url>
@@ -22,9 +51,9 @@
     
     <tags>
       
-      <tag>Spring</tag>
-      
       <tag>Java</tag>
+      
+      <tag>Spring</tag>
       
     </tags>
     
